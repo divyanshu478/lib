@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %} Fees Due {% endblock %}
+
+{% block content %}
+<h2 style="text-align: center;">Fees Due Students</h2>
+<a href="{{ url_for('tasks.students_list') }}">STUDENT LIST</a>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Mobile</th>
+            <th>Amount</th>
+            <th>Due Date</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for record in records %}
+        <tr>
+            <td>{{ record.student.name }}</td>
+            <td>{{ record.student.mobile_number }}</td>
+            <td>{{ record.amount }}</td>
+            <td>{{ record.fees_due_date.strftime('%d-%m-%Y') }}</td>
+            <td>
+                <a href="{{ url_for('tasks.pay_fees', record_id=record.id) }}">Mark Paid</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful</title>
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+           background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+           
+        }
+
+        .thankyou-container {
+            background: rgba(255, 255, 255, 0.1);
+            /* background: red; */
+            padding: 50px 80px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .thankyou-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .thankyou-container p {
+            font-size: 1.2rem;
+        }
+
+        /* Optional: Button to go back or dashboard */
+        .thankyou-container a {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 25px;
+            background: #fff;
+            color: #2575fc;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .thankyou-container a:hover {
+            background: #e0e0e0;
+        }
+
+        @keyframes fadeIn {
+            0% {opacity: 0; transform: translateY(-20px);}
+            100% {opacity: 1; transform: translateY(0);}
+        }
+    </style>
+</head>
+<body>
+    <div class="thankyou-container">
+        <h1>Thank You!</h1>
+        <p>Hurray! You’ve successfully completed your registration. Welcome aboard! 🎉</p>
+        <a href="/registration">Go to Registration</a>
+    </div>
+</body>
+</html>

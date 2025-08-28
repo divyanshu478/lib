@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %} Tasks {% endblock %}
+
+{% block content %}
+
+<h2 style="text-align: center;">All Registered Students</h2>
+<a href="{{ url_for('tasks.fees_due') }}">DUE LIST</a>
+
+
+<form method="POST" action="{{ url_for('tasks.delete_students') }}">
+    <button style="float: right;" type="submit" onclick="return confirm('Are you sure you want to delete selected students?')">
+        Delete Selected
+    </button>
+
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>Select</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Father's Name</th>
+            <th>Joining Date</th>
+            <th>Type</th>
+            <th>Fees</th>
+            <th>Mobile</th>
+            <th>Gmail</th>
+            <th>Status</th>
+        </tr>
+        {% for s in students %}
+        <tr>
+            <td><input type="checkbox" name="student_ids" value="{{ s.id }}"></td>
+            <td>{{ s.id }}</td>
+            <td>{{ s.name }}</td>
+            <td>{{ s.fathers_name }}</td>
+            <td>{{ s.joining_date.strftime("%d-%m-%Y") }}</td>
+            <td>{{ s.type }}</td>
+            <td>{{ s.fees }}</td>
+            <td>{{ s.mobile_number }}</td>
+            <td>{{ s.gmail }}</td>
+            <td>
+                <a href="{{ url_for('tasks.toggle_status', student_id=s.id) }}">
+                    {{ s.status }}
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</form>
+
+{% endblock %}

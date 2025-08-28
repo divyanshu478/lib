@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Registration Form{% endblock %}
+
+{% block content %}
+<div class="login-box">
+    <h2>Registration Form</h2>
+    <form action="{{ url_for('tasks.registration') }}" method="POST">
+        <div class="registration-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" required>
+        </div>
+
+        <div class="registration-group">
+            <label for="fathers_name">Father's Name</label>
+            <input type="text" name="fathers_name" id="fathers_name" required>
+        </div>
+
+        <div class="registration-group">
+            <label for="joining_date">Joining Date</label>
+            <input type="date" name="joining_date" id="joining_date" required>
+        </div>
+        
+        <div class="registration-group">
+            <label for="type">Type:</label>
+            <select name="type" id="type" required>
+                <option value="">--Select--</option> <!-- default placeholder -->
+                <option value="AC">AC</option>
+                <option value="Non-AC">Non-AC</option>
+            </select>
+        </div>
+        
+
+        <div class="registration-group">
+            <label for="fees">Fees</label>
+            <input type="text" name="fees" id="fees" required>
+        </div>
+
+        <div class="registration-group">
+            <label for="mobile_number">Mobile Number</label>
+            <input type="text" name="mobile_number" id="mobile_number" required pattern="[0-9]{10}" title="Enter a valid 10-digit mobile number">
+        </div>
+
+        <div class="registration-group">
+            <label for="gmail">Gmail</label>
+            <input type="text" name="gmail" id="gmail" required>
+        </div>
+        
+        <button type="submit" class="btn">Login</button>
+        
+        
+    </form>
+</div>
+{% endblock %}
+
+       
