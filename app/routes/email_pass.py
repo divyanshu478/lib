@@ -1,2 +1,3 @@
-email_ = "divyanshukumawat00478@gmail.com"
-pass_ = "qyzt udeq zamv unox"
+import os
+email_ = os.getenv("EMAIL_USER")
+pass_ = os.getenv("EMAIL_PASS")
