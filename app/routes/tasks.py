@@ -8,6 +8,7 @@ from app.routes.email_pass import email_, pass_
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
+from sqlalchemy import text
 task_bp = Blueprint('tasks',__name__)
 
 @task_bp.route("/")
@@ -131,7 +132,7 @@ def fees_due():
         return redirect(url_for('auth.login'))
     
     try:
-        db.session.execute("SELECT 1")
+        db.session.execute(text("SELECT 1"))
         return "✅ Database connected successfully!"
     except Exception as e:
         return f"❌ Database error: {str(e)}"
