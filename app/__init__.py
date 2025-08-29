@@ -39,7 +39,7 @@ def create_app() :
 
     # if os.environ.get("WERKZEUG_RUN_MAIN") == "true":
     # scheduler.add_job(func=job, trigger="cron", hour=9, minute=0)
-    scheduler.add_job(func=job, trigger="interval", seconds=30)
+    scheduler.add_job(func=job, trigger="interval", minutes=5)
     scheduler.start()
 
     return app
