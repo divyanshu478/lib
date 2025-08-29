@@ -7,7 +7,9 @@ class Registration(db.Model) :
     joining_date = db.Column(db.Date, nullable = False)
     fees = db.Column(db.Integer, nullable = False)
     type = db.Column(db.String(100))
-    mobile_number = db.Column(db.Integer, nullable = False)
+    # mobile_number = db.Column(db.Integer, nullable = False)
+    mobile_number = db.Column(db.String(15), nullable=False)
+
     gmail = db.Column(db.String(100))
     status = db.Column(db.String(20), default = "Active")
 
