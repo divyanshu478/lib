@@ -129,13 +129,19 @@ def fees_due():
     if not session.get('admin'):
         flash("Please login as admin first", "error")
         return redirect(url_for('auth.login'))
+    
+    try:
+        db.session.execute("SELECT 1")
+        return "✅ Database connected successfully!"
+    except Exception as e:
+        return f"❌ Database error: {str(e)}"
 
     
-    due_records = FeesRecord.query.join(Registration)\
-                    .filter(FeesRecord.is_paid == 0)\
-                    .filter(Registration.status == "Active")\
-                    .all()
-    return render_template("fees_due.html", records=due_records)
+    # due_records = FeesRecord.query.join(Registration)\
+    #                 .filter(FeesRecord.is_paid == 0)\
+    #                 .filter(Registration.status == "Active")\
+    #                 .all()
+    # return render_template("fees_due.html", records=due_records)
 
 
 # -------------------------
@@ -226,6 +232,7 @@ Thank you,
         except Exception as e:
             print(e)
             # messagebox.showerror("Email not found", "Your email is not valid", parent= self.root)
+
 
 
 
