@@ -10,7 +10,8 @@ db = SQLAlchemy()
 
 def create_app() :
     app = Flask(__name__)
-    app.config['SECRET_KEY'] = "mynameisdivyanshukumawat9950"
+    # app.config['SECRET_KEY'] = "mynameisdivyanshukumawat9950"
+    app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
     app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///project.db"
     app.config['SQLALCHEMY_TRACK_NOTIFICATIONS'] = False
 
@@ -36,7 +37,8 @@ def create_app() :
 
 
     # if os.environ.get("WERKZEUG_RUN_MAIN") == "true":
-    scheduler.add_job(func=job, trigger="interval", minutes = 1)
+    # scheduler.add_job(func=job, trigger="cron", hour=9, minute=0)
+    scheduler.add_job(func=job, trigger="interval", seconds=30)
     scheduler.start()
 
     return app

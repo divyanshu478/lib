@@ -177,10 +177,6 @@ def update_due_status():
     db.session.commit()
 
 
-def auto_email_sender() :
-    pass
-
-
 def send_email() :
         try:
             server = smtplib.SMTP("smtp.gmail.com", 587, timeout=10)
