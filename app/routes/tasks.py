@@ -132,7 +132,7 @@ def fees_due():
         return redirect(url_for('auth.login'))
         
     due_records = FeesRecord.query.join(Registration)\
-                    .filter(FeesRecord.is_paid == 0)\
+                    .filter(FeesRecord.is_paid == False)\
                     .filter(Registration.status == "Active")\
                     .all()
     return render_template("fees_due.html", records=due_records)
