@@ -173,7 +173,6 @@ def update_due_status():
     for r in records:
         if r.fees_due_date - timedelta(days=3) <= today:
             r.is_paid = False  # Automatically mark False
-
     db.session.commit()
 
 
@@ -219,7 +218,6 @@ Thank you,
                 check = server.ehlo()
                 if check[0] == 250 :
                     server.send_message(msg)
-                    print("Send")
                 else :
                     pass
 

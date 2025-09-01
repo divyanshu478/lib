@@ -30,15 +30,15 @@ def create_app() :
    
     scheduler = BackgroundScheduler()
 
-    def job():
+    def update_schedule():
         with app.app_context():
             update_due_status()
+
+    def email_schedule():
+        with app.app_context():
             send_email()
 
-
-    # if os.environ.get("WERKZEUG_RUN_MAIN") == "true":
-    scheduler.add_job(func=job, trigger="cron", hour=8, minute=0)
-    # scheduler.add_job(func=job, trigger="interval", minutes=5)
+    scheduler.add_job(func=update_schedule, trigger="interval", minutes=13)
+    scheduler.add_job(func=email_schedule, trigger="cron", hour=8, minute=0)
     scheduler.start()
-
     return app
