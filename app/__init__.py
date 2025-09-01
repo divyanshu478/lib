@@ -38,7 +38,7 @@ def create_app() :
         with app.app_context():
             send_email()
 
-    scheduler.add_job(func=update_schedule, trigger="interval", minutes=13)
+    scheduler.add_job(func=update_schedule, trigger="interval", minutes=5)
     scheduler.add_job(func=email_schedule, trigger="cron", hour=8, minute=0)
     scheduler.start()
     return app
