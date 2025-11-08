@@ -18,12 +18,12 @@
             <th>Select</th>
             <th>ID</th>
             <th>Name</th>
-            <th>Father's Name</th>
+            <!-- <th>Father's Name</th> -->
             <th>Joining Date</th>
             <th>Type</th>
             <th>Fees</th>
             <th>Mobile</th>
-            <th>Gmail</th>
+            <!-- <th>Gmail</th> -->
             <th>Status</th>
         </tr>
         {% for s in students %}
@@ -31,12 +31,12 @@
             <td><input type="checkbox" name="student_ids" value="{{ s.id }}"></td>
             <td>{{ s.id }}</td>
             <td>{{ s.name }}</td>
-            <td>{{ s.fathers_name }}</td>
+            <!-- <td>{{ s.fathers_name }}</td> -->
             <td>{{ s.joining_date.strftime("%d-%m-%Y") }}</td>
             <td>{{ s.type }}</td>
             <td>{{ s.fees }}</td>
             <td>{{ s.mobile_number }}</td>
-            <td>{{ s.gmail }}</td>
+            <!-- <td>{{ s.gmail }}</td> -->
             <td>
                 <a href="{{ url_for('tasks.toggle_status', student_id=s.id) }}">
                     {{ s.status }}
