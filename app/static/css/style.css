@@ -217,3 +217,50 @@ button.btn:hover {
     background-color: #218838;
     transform: translateY(-2px);
 }
+
+/* ===== Mobile Responsive ===== */
+@media (max-width: 768px) {
+
+    .container, main.contanier {
+        width: 100%;
+        padding: 10px;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    header nav a {
+        display: inline-block;
+        margin: 0 8px;
+        font-size: 14px;
+    }
+
+    table {
+        font-size: 14px;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    input[type="number"], input[type="text"], input[type="date"] {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
+    button, button.btn {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+    }
+
+    .login-box {
+        width: 95%;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    .registration-group input,
+    .registration-group select {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
